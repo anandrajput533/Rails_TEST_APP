@@ -34,7 +34,7 @@ This Rails application allows users to create and manage posts, comments, and ta
 
 ### Prerequisites
 
-- Ruby 2.7 or higher
+- Ruby 3.2.0 or higher
 - Rails 7 or higher
 - SQLelite
 
