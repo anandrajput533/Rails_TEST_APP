@@ -1,0 +1,33 @@
+<% if user_signed_in? %>
+  <p class="text-success"><%= notice %></p>
+
+  <% content_for :title, "Posts" %>
+
+  <h1 class="my-4">Posts</h1>
+  <table id="post_list" class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Tags</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <div >
+        <%=render partial:'post',collection:@posts,as: :post%>
+        </div>
+        <div id="search_result">
+        </div>
+    </tbody>
+  </table>
+<%# Render a view helper in your views (skipping nav links for empty pages) %>
+
+<% else %>
+  <p class="alert alert-warning">Please sign in to view posts.</p>
+<% end %>
+<script type="module">
+$(document).ready(function () {
+  $('#post_list').DataTable();
+});
+</script>

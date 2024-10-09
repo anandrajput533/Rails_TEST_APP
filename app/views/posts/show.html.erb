@@ -1,0 +1,55 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.description %></p>
+
+<% if @post.images.any? %>
+<ul>
+  <% @post.images.each do |im| %>
+  <br>
+    <li><%= image_tag im, class:"img_container" %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<h5>Tags</h5>
+<ul>
+  <% if @post.tags.any? %>
+    <% @post.tags.each do |tag| %>
+      <li><%= tag.name %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+
+<div class="row">
+  <div class="col-md-2">
+    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-dark" %>
+  </div>
+  <div class="col-md-2">
+    <%= link_to "Back to posts", posts_path, class: "btn btn-dark" %>
+  </div>
+  <div class="col-md-2">
+    <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-dark", data: { confirm: "Are you sure?" } %>
+  </div>
+</div>
+
+<h2>Comments</h2>
+
+<%= form_with(model: [@post, @comment], local: true) do |f| %>
+  <div>
+    <%= f.text_area :body %>
+  </div>
+  <%= f.submit 'Add Comment' %>
+<% end %>
+
+<% @comments.each do |comment| %>
+  <p><strong><%= comment.user.email %>:</strong> <%= comment.body %></p>
+<% end %>
+
+<style>
+img{
+  width: 10%;
+}
+ul {
+  list-style-type: none;
+}
+</style>

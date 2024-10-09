@@ -1,0 +1,7 @@
+
+        <tr>
+          <td><%= link_to post.title, post %></td>
+          <td><%= post.description %></td>
+          <td><%= post.tag_list.join(', ') %></td>
+          <td><%= link_to 'View', post, class: 'btn btn-primary btn-sm' %></td>
+        </tr>
