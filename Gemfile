@@ -59,4 +59,4 @@ end
 gem "devise", "~> 4.9"
 # gem "carrierwave", "~> 1.3"
 gem "mini_magick", "~> 5.0"
-gem "acts-as-taggable-on", "~> 11.0"
+gem "acts-as-taggable-on", "~> 12.0"
